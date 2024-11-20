@@ -60,16 +60,17 @@ def train_network_optimized(device, batch_size = 32, total_samples = 1000):
         return end_time - start_time
 
 
-# Measure time on CPU
-cpu_time_optimized = train_network_optimized('cpu', 10000, 10000)
+if __name__ == "__main__":
+    # Measure time on CPU
+    cpu_time_optimized = train_network_optimized('cpu', 10000, 10000)
 
-# Measure time on GPU if available
-gpu_time_optimized = None
-if torch.backends.mps.is_available():
-    gpu_time_optimized = train_network_optimized('mps', 10000, 10000)
+    # Measure time on GPU if available
+    gpu_time_optimized = None
+    if torch.backends.mps.is_available():
+        gpu_time_optimized = train_network_optimized('mps', 10000, 10000)
 
-print(f"CPU Training Time: {cpu_time_optimized:.2f} seconds")
-if gpu_time_optimized is not None:
-    print(f"GPU Training Time: {gpu_time_optimized:.2f} seconds")
-else:
-    print("GPU acceleration (MPS) not available on this machine.")
+    print(f"CPU Training Time: {cpu_time_optimized:.2f} seconds")
+    if gpu_time_optimized is not None:
+        print(f"GPU Training Time: {gpu_time_optimized:.2f} seconds")
+    else:
+        print("GPU acceleration (MPS) not available on this machine.")
