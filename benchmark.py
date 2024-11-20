@@ -52,7 +52,7 @@ def train_network_optimized(device, batch_size = 32, total_samples = 1000):
                 loss.backward()
                 optimizer.step()
 
-                print(f"Epoch {epoch + 1}, Loss: {loss.item()}, Progress: {get_progress(5, total_samples, epoch, start_idx)} ")
+                print(f"Epoch {epoch + 1}, Loss: {loss.item()}, Progress: {get_progress(5, total_samples, epoch, (start_idx + 1) * batch_size)}")
     except KeyboardInterrupt:
         print("\nTraining interrupted by user.")
     finally:
