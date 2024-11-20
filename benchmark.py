@@ -23,8 +23,8 @@ class SimpleCNN(nn.Module):
 def train_network_optimized(device):
     # Adjust data size to prevent memory issues
     model = SimpleCNN().to(device)
-    inputs = torch.randn(10000, 3, 64, 64).to(device)
-    labels = torch.randint(0, 10, (10000,)).to(device)
+    inputs = torch.randn(100000, 3, 64, 64).to(device)
+    labels = torch.randint(0, 10, (100000,)).to(device)
 
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters())
