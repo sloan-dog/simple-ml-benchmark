@@ -34,7 +34,6 @@ def train_network_optimized(device, batch_size = 32, total_samples = 1000):
     optimizer = optim.Adam(model.parameters())
 
     # Train the model
-# Train the model with interrupt handling
     try:
         start_time = time.time()
         print(f"Starting training with [{device}]. Press Ctrl+C to interrupt...")
