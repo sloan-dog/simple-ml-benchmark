@@ -15,7 +15,8 @@ class SimpleCNN(nn.Module):
     def forward(self, x):
         x = self.pool(torch.relu(self.conv1(x)))
         x = x.view(-1, 32 * 31 * 31)
-        x = torch.relu(self.fc1(x))
+        # rectified linear unit
+        x = torch.relu(self.fc1(x)) 
         x = self.fc2(x)
         return x
 
